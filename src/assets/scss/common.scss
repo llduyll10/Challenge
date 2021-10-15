@@ -1,0 +1,117 @@
+$dimensions: 0,
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+10,
+11,
+12,
+13,
+14,
+15,
+16,
+18,
+20,
+22,
+24,
+25,
+28,
+30,
+32,
+35,
+36,
+37,
+40,
+45,
+50,
+54,
+60,
+70,
+80,
+100,
+200;
+@each $dimension in $dimensions {
+    // font-size
+    .f-#{$dimension} {
+        font-size:#{$dimension}px!important
+    }
+    .z#{$dimension} {
+        z-index:#{$dimension}!important
+    }
+    // position
+    .top-#{$dimension}px {
+        top: #{$dimension}px!important;
+    }
+    .left-#{$dimension}px {
+        left: #{$dimension}px!important;
+    }
+    .right-#{$dimension}px {
+        right: #{$dimension}px!important;
+    }
+    .bottom-#{$dimension}px {
+        bottom: #{$dimension}px!important;
+    }
+    // border
+    .border-#{$dimension}px {
+        border-width: #{$dimension}px!important;
+    }
+    // for padding
+    .p-#{$dimension}px {
+        padding: #{$dimension}px!important;
+    }
+    .pt-#{$dimension}px {
+        padding-top: #{$dimension}px!important;
+    }
+    .pl-#{$dimension}px {
+        padding-left: #{$dimension}px!important;
+    }
+    .pr-#{$dimension}px {
+        padding-right: #{$dimension}px!important;
+    }
+    .pb-#{$dimension}px {
+        padding-bottom: #{$dimension}px!important;
+    }
+    .py-#{$dimension}px {
+        padding-bottom: #{$dimension}px!important;
+        padding-top: #{$dimension}px!important;
+    }
+    .px-#{$dimension}px {
+        padding-left: #{$dimension}px!important;
+        padding-right: #{$dimension}px!important;
+    }
+    // for margin
+    .m-#{$dimension}px {
+        margin: #{$dimension}px!important;
+    }
+    .mt-#{$dimension}px {
+        margin-top: #{$dimension}px!important;
+    }
+    .ml-#{$dimension}px {
+        margin-left: #{$dimension}px!important;
+    }
+    .mr-#{$dimension}px {
+        margin-right: #{$dimension}px!important;
+    }
+    .mb-#{$dimension}px {
+        margin-bottom: #{$dimension}px!important;
+    }
+    .my-#{$dimension}px {
+        margin-bottom: #{$dimension}px!important;
+        margin-top: #{$dimension}px!important;
+    }
+    .mx-#{$dimension}px {
+        margin-left: #{$dimension}px!important;
+        margin-right: #{$dimension}px!important;
+    }
+    .w-#{$dimension}px {
+        width: #{$dimension}px!important;
+    }
+    .h-#{$dimension}px {
+        height: #{$dimension}px!important;
+    }
+}

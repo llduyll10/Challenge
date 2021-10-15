@@ -1,34 +1,25 @@
 <template>
   <nav id="sidebar">
-    <div class="p-4 pt-5">
-      <a
-        @click="$emit('onChange')"
-        href="#"
-        class="img logo rounded-circle mb-5"
-      ></a>
+      <div class="cover-logo">
+        <img width="125" height="35" src="/img/Aspire-Logo-2.svg" alt="Logo" />
+        <p class="des">Trusted way of banking for 3,000+ <br> SMEs and startups in Singapore</p>
+      </div>
       <ul class="list-unstyled components mb-5">
         <li
           :class="{ active: item.isActive }"
           v-for="(item, index) in buttonList"
           :key="index"
-          @click="setActive(index)"
-        >
-          <a href="#" @click="$router.push(item.linkTo)">{{item.name}}</a>
 
+        >
+          <div class="d-flex">
+            <img class="mr-16px" width="24" height="24" :src="item.urlImg" />
+            <a href="#">{{item.name}}</a>
+          </div>
         </li>
       </ul>
-      <div class="footer">
-        <p>
-          Copyright © 2020 All rights reserved | This template is made with
-          <i class="icon-heart" aria-hidden="true"></i> by
-          <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
-        </p>
-      </div>
-    </div>
   </nav>
 </template>
 <script>
-import DropdownHover from "../components/DropdownHover.vue";
 import api from "../services/base-services";
 export default {
   name: "Drawer",
@@ -40,34 +31,36 @@ export default {
     return {
       buttonList: [
         {
-          name: "List Item",
+          name: "Home",
+          isActive: false,
+          urlImg:'/img/Home.svg'
+        },
+        {
+          name: "Card",
           isActive: true,
-          linkTo:'/'
+          urlImg:'/img/Card.svg'
         },
         {
-          name: "Liked Item",
+          name: "Payments",
           isActive: false,
-          linkTo:'/like'
+          urlImg:'/img/Payments.svg'
         },
         {
-          name: "Removed Item",
+          name: "Credit",
           isActive: false,
-          linkTo:'/remove'
+          urlImg:'/img/Credit.svg'
+        },
+        {
+          name: "Settings",
+          isActive: false,
+          urlImg:'/img/Account.svg'
         },
       ],
     };
   },
 
   methods: {
-    setActive(index) {
-      this.buttonList.forEach((element, idx) => {
-        if (this.buttonList[idx] === this.buttonList[index]) {
-          this.buttonList[index].isActive = true;
-        } else {
-          this.buttonList[idx].isActive = false;
-        }
-      });
-    },
+
   },
 };
 </script>

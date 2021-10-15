@@ -8,22 +8,9 @@ const routes = [
     path: '/',
     name: 'home',
     meta:{breadCrumb: "Home"},
-    component: () => import('../views/ListData.vue'),
+    component: () => import('../views/Home.vue'),
   },
-  {
-    path: '/like',
-    name: 'like',
-    meta:{breadCrumb: "Like"},
-    component: () => import('../views/LikeItem.vue'),
 
-  },
-  {
-    path: '/remove',
-    name: 'remove',
-    meta:{breadCrumb: "Remove"},
-    component: () => import('../views/RemoveItem.vue'),
-
-  },
   {
     path: '/test',
     name: 'test',
