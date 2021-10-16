@@ -26,27 +26,27 @@ export default {
         {
           name: "Home",
           isActive: false,
-          urlImg:'/img/Home.svg'
+          urlImg:'/img/icon-logo-mobile.svg'
         },
         {
           name: "Card",
           isActive: true,
-          urlImg:'/img/Card.svg'
+          urlImg:'/img/icon-pay-mobile.svg'
         },
         {
           name: "Payments",
           isActive: false,
-          urlImg:'/img/Payments.svg'
+          urlImg:'/img/icon-payments-mobile.svg'
         },
         {
           name: "Credit",
           isActive: false,
-          urlImg:'/img/Credit.svg'
+          urlImg:'/img/icon-credit-mobile.svg'
         },
         {
           name: "Settings",
           isActive: false,
-          urlImg:'/img/Account.svg'
+          urlImg:'/img/icon-account-mobile.svg'
         },
       ],
     };

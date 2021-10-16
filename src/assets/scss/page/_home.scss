@@ -187,6 +187,97 @@
       .d-block-sm{
         display: none;
       }
+      .group-child-item{
+        border: 1px solid #F0F0F0;
+        border-radius: 4px;
+      }
+      .item-action{
+        width: 100%;
+        height: 72px;
+        padding: 24px;
+        background-color: #FAFCFF;
+        box-shadow: 3px 3px 16px #00000014;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 10px;
+        .title{
+          color: #0C365A;
+          font-size: 14px;
+          margin-left: 12px;
+        }
+      }
+      .item-child-action{
+        padding: 16px 24px;
+        padding-bottom: 0;
+        .cover-child{
+          border-bottom: 1px solid #F5F5F5;
+          padding-bottom: 24px;
+          .logo-child{
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: #009DFF1A;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &.green{
+              background-color: #00D6B51A;
+            }
+            &.pink{
+              background-color: #F251951A;
+            }
+          }
+          .cover-item-right{
+            width: 100%;
+            padding-left: 12px;
+            .name-child{
+              display: flex;
+              justify-content: space-between;
+              width: 100%;
+              margin-bottom: 4px;
+              p{
+                margin-bottom: 0;
+              }
+              .name{
+                font-size: 14px;
+                color: #222222;
+              }
+              .price{
+                color: $primary;
+                font-size: 14px;
+                font-weight: bold;
+              }
+            }
+            .date{
+              margin-bottom: 12px;
+              color: #AAAAAA;
+              font-size: 13px;
+            }
+            .icon-card{
+              width: 24px;
+              height: 20px;
+              background-color: #325BAF;
+              border-radius: 40%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+            .text-card{
+              margin-bottom: 0;
+              color: #325BAF;
+              font-size: 12px;
+              margin-left: 8px;
+            }
+          }
+
+        }
+      }
+      .footer-item-action{
+        p{
+          text-align: center;
+        }
+      }
     }
   }
 }
@@ -221,7 +312,8 @@
       padding: 0;
       background-color: transparent;
       .action{
-
+        border-top-left-radius: 40px;
+        border-top-right-radius: 40px;
       }
       .ct-left{
         padding: 0 40px;
@@ -264,6 +356,10 @@
         padding: 0 !important;
         .d-block-sm{
           display: block !important;
+        }
+        .cover-item-mobile{
+          background-color: white;
+          padding:24px;
         }
       }
     }
