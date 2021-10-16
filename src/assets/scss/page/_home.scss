@@ -80,6 +80,112 @@
       }
     }
   }
+
+  .group-content{
+    box-shadow: 3px 3px 16px #00000014;
+    border: rgba(252, 252, 252, 1);
+    border-radius: 8px;
+    width: 100%;
+    min-height: 500px;
+    background-color: white;
+    padding: 60px 40px 40px 40px;
+    .ct-left{
+      .debit-card-cover{
+        .eye-show{
+          position: absolute;
+          right: 10px;
+          top:-25px;
+          span{
+            font-size: 12px;
+            margin-left: 6px;
+            color: $primary;
+          }
+        }
+        .debit-card{
+          background-color:$primary;
+          padding: 27px;
+          border-radius: 8px;
+          height: 250px;
+          position: relative;
+
+          .logo{
+            justify-content: flex-end;
+          }
+          h4{
+            font-size: 24px;
+            letter-spacing: 1px;
+            margin-top: 27px;
+            margin-bottom: 30px;
+            color: white;
+          }
+          .number-container{
+            display: flex;
+            align-items: center;
+            .item{
+              margin-right: 27px;
+              span{
+                font-size: 40px;
+                line-height: 0;
+                color: white;
+              }
+            }
+            .year{
+              color: white;
+              letter-spacing: 2px;
+              margin-top: -15px;
+            }
+          }
+          .date-container{
+            margin-top: 20px;
+            color: white;
+            letter-spacing: 2px;
+            .date{
+              margin-right: 35px;
+            }
+          }
+          .ft-card{
+            display: flex;
+            justify-content: flex-end;
+          }
+        }
+      }
+      .action{
+        margin-top: 60px;
+        height: 116px;
+        background-color: #EDF3FF;
+        padding: 20px 30px;
+        border-radius: 10px;
+        .cover-action{
+          ul{
+            padding-left: 0;
+            display: flex;
+            justify-content: space-around;
+            li{
+              list-style: none;
+              width: max-content;
+              display: flex;
+              flex-direction: column;
+              img{
+                width: 32px;
+                height: 32px;
+                align-self: center;
+                margin-bottom: 7px;
+              }
+              p{
+                color: #0C365A;
+                font-size: 13px;
+                margin-bottom: 0;
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+    }
+    .ct-right{
+
+    }
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -97,6 +203,53 @@
         .btn-new-card{
           background-color: transparent !important;
         }
+      }
+    }
+    .group-menu{
+      ul{
+        li{
+          color: white;
+        }
+      }
+    }
+    .group-content{
+      padding: 0;
+      background-color: transparent;
+      .ct-left{
+        .debit-card-cover{
+          margin-top: 25px;
+          .eye-show{
+            background-color: white;
+            height: 40px;
+            width: 150px;
+            text-align: center;
+            border-radius: 8px;
+            z-index: 1;
+            right: 0;
+          }
+          .debit-card{
+            padding: 24px !important;
+            z-index: 2;
+            .number-container{
+              .item{
+                span{
+                  font-size: 27px;
+                  font-weight: bold;
+                }
+              }
+              .year{
+                margin-top: -6px;
+              }
+            }
+            .ft-card{
+              margin-top: 5px;
+            }
+          }
+        }
+        .d-none-sm{
+          display: none;
+        }
+
       }
     }
   }

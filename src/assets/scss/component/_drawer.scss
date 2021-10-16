@@ -63,12 +63,12 @@
                                 }
                             }
                             &:hover{
-                                color: #01D167;
+                                color: $primary;
                             }
                         }
                         &.active{
                             a{
-                                color: #01D167 !important;
+                                color: $primary !important;
                             }
                         }
                         ul{
@@ -106,11 +106,19 @@
             padding: 10px 30px;
             height: 56px;
             ul{
+                display: flex;
+                justify-content: space-between;
                 li{
-                    min-width: 70px;
+                    width: max-content;
+                    display: flex;
+                    flex-direction: column;
+                    img{
+                        align-self: center;
+                    }
                     p{
                         font-size: 9px;
                         color: #DDDDDD;
+                        text-align: center;
                     }
                 }
             }

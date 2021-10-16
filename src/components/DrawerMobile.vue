@@ -6,10 +6,8 @@
           v-for="(item, index) in buttonList"
           :key="index"
         >
-          <div>
             <img class="mb-5px" width="24" height="24" :src="item.urlImg" />
             <p href="#">{{item.name}}</p>
-          </div>
         </li>
       </ul>
   </nav>
