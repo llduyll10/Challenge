@@ -9,7 +9,7 @@ export default {
     methods:{
         callAPI(){
             var obj = {
-                "email":"duy10@gmail.com",
+                "username":"duy10@gmail.com",
                 "password":"123456"
             }
             let axiosConfig = {
@@ -21,7 +21,7 @@ export default {
                     }
             };
 
-            axios.post('https://peaceful-journey-28732.herokuapp.com/api/login',obj,axiosConfig)
+            axios.post('https://blogdrfduynnd.herokuapp.com/api/account/login',obj,axiosConfig)
                 .then(res =>{
                     console.log('res',res)
                 })
