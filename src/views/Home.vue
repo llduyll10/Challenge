@@ -95,7 +95,16 @@
                 </div>
             </div>
             <div class="col-12 col-md-6 ct-right">
-                <p>b</p>
+                <div class="action d-block-sm ">
+                    <div class="cover-action">
+                        <ul>
+                            <li v-for="(item,idx) in listAction" :key="idx">
+                                <img :src="item.img" :alt="item.name">
+                                <p>{{item.name}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -89,6 +89,38 @@
     min-height: 500px;
     background-color: white;
     padding: 60px 40px 40px 40px;
+    .action{
+      margin-top: 60px;
+      height: 116px;
+      background-color: #EDF3FF;
+      padding: 20px 30px;
+      border-radius: 10px;
+      .cover-action{
+        ul{
+          padding-left: 0;
+          display: flex;
+          justify-content: space-around;
+          li{
+            list-style: none;
+            width: max-content;
+            display: flex;
+            flex-direction: column;
+            img{
+              width: 32px;
+              height: 32px;
+              align-self: center;
+              margin-bottom: 7px;
+            }
+            p{
+              color: #0C365A;
+              font-size: 13px;
+              margin-bottom: 0;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
     .ct-left{
       .debit-card-cover{
         .eye-show{
@@ -149,41 +181,12 @@
           }
         }
       }
-      .action{
-        margin-top: 60px;
-        height: 116px;
-        background-color: #EDF3FF;
-        padding: 20px 30px;
-        border-radius: 10px;
-        .cover-action{
-          ul{
-            padding-left: 0;
-            display: flex;
-            justify-content: space-around;
-            li{
-              list-style: none;
-              width: max-content;
-              display: flex;
-              flex-direction: column;
-              img{
-                width: 32px;
-                height: 32px;
-                align-self: center;
-                margin-bottom: 7px;
-              }
-              p{
-                color: #0C365A;
-                font-size: 13px;
-                margin-bottom: 0;
-                text-align: center;
-              }
-            }
-          }
-        }
-      }
+
     }
     .ct-right{
-
+      .d-block-sm{
+        display: none;
+      }
     }
   }
 }
@@ -191,6 +194,7 @@
 @media screen and (max-width: 500px) {
   #Home{
     .group-header{
+      padding: 0 24px;
       .title{
         color:white;
       }
@@ -206,6 +210,7 @@
       }
     }
     .group-menu{
+      padding: 0 24px;
       ul{
         li{
           color: white;
@@ -215,7 +220,11 @@
     .group-content{
       padding: 0;
       background-color: transparent;
+      .action{
+
+      }
       .ct-left{
+        padding: 0 40px;
         .debit-card-cover{
           margin-top: 25px;
           .eye-show{
@@ -250,6 +259,12 @@
           display: none;
         }
 
+      }
+      .ct-right{
+        padding: 0 !important;
+        .d-block-sm{
+          display: block !important;
+        }
       }
     }
   }
