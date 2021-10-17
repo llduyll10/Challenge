@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const apiBase = axios.create({
-    baseURL: (process.env.VUE_APP_ROOT_API_DEV !== undefined) ? process.env.VUE_APP_ROOT_API_DEV : process.env.VUE_APP_ROOT_API_DEV
+    baseURL: 'https://fs09-vexeredemo.herokuapp.com/api/'
 })
 axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 axios.defaults.headers.common['Content-Type'] = 'application/json';

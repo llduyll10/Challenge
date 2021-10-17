@@ -13,12 +13,10 @@
   </nav>
 </template>
 <script>
-import api from "../services/base-services";
 export default {
   name: "Drawer",
   props: ["isMobile"],
   mounted() {
-    this.$store.dispatch("getListData");
   },
   data() {
     return {

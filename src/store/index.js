@@ -1,124 +1,69 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import api from '../services/base-services'
-
+import router from '../router'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        listData: null,
-        listDataLike: [],
-        listDataRemove: [],
-        loading: true,
-        keySearch: 'apollo 11',
-        page: 1
+        loading:false,
+        isError:false,
+        emailAdmin: 'duynnd01@gmail.com',
+        updateLocalStorage:false,
     },
     mutations: {
-        storeListData(state, data) {
-            state.listData = data.listData
+        updateLocalStorageAction:(state, payload) => {
+            state.updateLocalStorage = payload
         },
-        storeDataLike(state, data) {
-            state.listDataLike = data.listDataLike
+        updateLoading:(state, payload) =>{
+            state.loading = payload
         },
-        storeDataRemove(state, data) {
-            state.listDataRemove = data.listDataRemove
-        },
-        changeKey(state, data) {
-            state.keySearch = data.keySearch
-        },
-        changeLoad(state, data) {
-            state.loading = data.loading
+        updateIsError:(state, payload) =>{
+            state.isError = payload
         }
     },
     actions: {
-        getListData({ commit, dispatch }) {
-            dispatch('changeLoading', true)
-            api.get(`search?q=${this.state.keySearch}&page=${this.state.page}`).then(res => {
-                res.data.collection.items.forEach(child => {
-                    child.data[0].isLike = false;
-                    child.data[0].isDelete = false
+        handleLogin({commit, dispatch}, user){
+            let userLocal = {...user}
+            commit("updateLoading", true);
+            api.post('/users/login',user)
+                .then(res => {
+                    userLocal.token = res.data.token;
+                    localStorage.setItem("user", JSON.stringify(userLocal));
+                    commit("updateLocalStorageAction", true);
+                    commit("updateLoading", false);
+                    commit("updateIsError", false);
+                    if(user.email == this.state.emailAdmin){
+                        router.replace("/admin");
+                    }
+                    else{
+                        router.replace("/client");
+                    }
                 })
-                commit('storeListData', {
-                    listData: res.data,
+                .catch(err => {
+                    commit("updateLocalStorageAction", false);
+                    commit("updateLoading", false);
+                    commit("updateIsError", true);
                 })
-                dispatch('changeLoading', false)
-            })
         },
-        changeKeySearch({ commit, dispatch }, keySearch) {
-            if (keySearch === null || keySearch === "") {
-                keySearch = " "
-            }
-            commit('changeKey', { keySearch: keySearch })
-            dispatch('getListData')
+        logout({commit, dispatch}){
+            localStorage.removeItem("user")
+            commit("updateLocalStorageAction", false);
+            router.replace("/login");
         },
-        changeLoading({ commit }, loading) {
-            commit('changeLoad', { loading: loading })
-        },
-        likeData({ commit, dispatch }, likeItem) {
-            let dataRaw = JSON.parse(JSON.stringify(this.state.listData))
-            dataRaw.collection.items.forEach(child => {
-                if (child.data[0].nasa_id === likeItem.nasa_id) {
-                    child.data[0].isLike = true
-                }
-            })
-            commit('storeListData', { listData: dataRaw })
-            //Add store
-            let listLikeRaw = JSON.parse(JSON.stringify(this.state.listDataLike))
-            listLikeRaw.push(likeItem)
-            commit('storeDataLike', { listDataLike: listLikeRaw })
-        },
-        unlikeData({commit,dispatch}, unlikeItem) {
-            let dataRaw = JSON.parse(JSON.stringify(this.state.listData))
-            dataRaw.collection.items.forEach(child => {
-                if (child.data[0].nasa_id === unlikeItem.nasa_id) {
-                    child.data[0].isLike = false
-                }
-            })
-            commit('storeListData', { listData: dataRaw })
-            //Add store
-            let listLikeRaw = JSON.parse(JSON.stringify(this.state.listDataLike))
-            listLikeRaw = listLikeRaw.filter(item => item.nasa_id !== unlikeItem.nasa_id)
-            commit('storeDataLike', { listDataLike: listLikeRaw })
-        },
-        removeData({ commit, dispatch }, removeItem) {
-            let dataRaw = JSON.parse(JSON.stringify(this.state.listData))
-            dataRaw.collection.items.forEach(child => {
-                if (child.data[0].nasa_id === removeItem.nasa_id) {
-                    child.data[0].isDelete = true;
-                }
-            })
-            commit('storeListData', { listData: dataRaw })
-            //Add store
-            let listRemoveRaw = JSON.parse(JSON.stringify(this.state.listDataRemove))
-            listRemoveRaw.push(removeItem)
-            commit('storeDataRemove', { listDataRemove: listRemoveRaw })
-        },
-        undoData({commit,dispatch},undoItem){
-            let dataRaw = JSON.parse(JSON.stringify(this.state.listData))
-            dataRaw.collection.items.forEach(child => {
-                if (child.data[0].nasa_id === undoItem.nasa_id) {
-                    child.data[0].isDelete = false;
-                }
-            })
-            commit('storeListData', { listData: dataRaw })
-            //Add store
-            let listRemoveRaw = JSON.parse(JSON.stringify(this.state.listDataRemove))
-            listRemoveRaw = listRemoveRaw.filter(item => item.nasa_id !== undoItem.nasa_id)
-            commit('storeDataRemove', { listDataRemove: listRemoveRaw })
+        createUser({commit, dispatch},user){
+            api.post('/users', user)
+                .then(res => {
+                    console.log(res)
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+
         }
+
     },
     getters: {
-        loading(state) {
-            return state.loading
-        },
-        listData(state) {
-            return state.listData.collection
-        },
-        listDataLike(state) {
-            return state.listDataLike
-        },
-        listDataRemove(state) {
-            return state.listDataRemove
-        }
+
     }
 })

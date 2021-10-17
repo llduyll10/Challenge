@@ -13,19 +13,17 @@
         >
           <div class="d-flex">
             <img class="mr-16px" width="24" height="24" :src="item.urlImg" />
-            <a href="#">{{item.name}}</a>
+            <a href="#" @click="goToPage(item.url)">{{item.name}}</a>
           </div>
         </li>
       </ul>
   </nav>
 </template>
 <script>
-import api from "../services/base-services";
 export default {
   name: "Drawer",
   props: ["isMobile"],
   mounted() {
-    this.$store.dispatch("getListData");
   },
   data() {
     return {
@@ -33,34 +31,45 @@ export default {
         {
           name: "Home",
           isActive: false,
-          urlImg:'/img/Home.svg'
+          urlImg:'/img/Home.svg',
+          url:'/'
         },
         {
           name: "Card",
           isActive: true,
-          urlImg:'/img/Card.svg'
+          urlImg:'/img/Card.svg',
+           url:''
         },
         {
           name: "Payments",
           isActive: false,
-          urlImg:'/img/Payments.svg'
+          urlImg:'/img/Payments.svg',
+           url:''
         },
         {
           name: "Credit",
           isActive: false,
-          urlImg:'/img/Credit.svg'
+          urlImg:'/img/Credit.svg',
+          url:''
         },
         {
-          name: "Settings",
+          name: "Login",
           isActive: false,
-          urlImg:'/img/Account.svg'
+          urlImg:'/img/Account.svg',
+          url:'/login'
         },
       ],
     };
   },
 
   methods: {
-
+    goToPage(url){
+      this.$router.push(url).catch(error => {
+        if (error.name != "NavigationDuplicated") {
+          throw error;
+        }
+      });
+    }
   },
 };
 </script>

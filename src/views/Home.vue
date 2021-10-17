@@ -205,14 +205,10 @@ export default {
       }
   },
   computed: {
-    listDataLike() {
-      return this.$store.getters.listDataLike;
-    },
+
   },
   methods: {
-    unlikeData(item) {
-      this.$store.dispatch("unlikeData", item);
-    },
+
   },
 };
 </script>

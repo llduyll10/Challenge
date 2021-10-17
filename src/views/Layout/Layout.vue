@@ -1,11 +1,12 @@
 <template>
-  <div class="homepage">
-    <div class="drawer">
-      <div class="left-drawer">
+  <div class="homepage" >
+    <div class="drawer" >
+      <div id="left-sidebar" class="left-drawer" >
         <Drawer />
       </div>
-      <div class="right-drawer">
+      <div id="right-drawer" class="right-drawer">
         <router-view />
+        <Loading v-if="isLoading" />
       </div>
 
     </div>
@@ -18,11 +19,26 @@
 import Drawer from "../../components/Drawer";
 import Header from "../../components/Header";
 import DrawerMobile from '../../components/DrawerMobile.vue'
+import Loading from '../../components/Loading.vue';
+
 export default {
   name: "Layout",
-  components: { Drawer, Header,DrawerMobile },
-  data() {
-    return {};
+  components: { Drawer, Header,DrawerMobile,Loading, Loading },
+  computed:{
+    updateLocalStorage(){
+      return this.$store.state.updateLocalStorage;
+    }
   },
+  data() {
+    return {
+    };
+  },
+  computed:{
+    isLoading(){
+      return this.$store.state.loading;
+    }
+  },
+  mounted(){
+  }
 };
 </script>

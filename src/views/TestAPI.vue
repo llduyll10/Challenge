@@ -4,30 +4,28 @@
     </button>
 </template>
 <script>
-import axios from 'axios'
+import  api from "../services/base-services";
 export default {
     methods:{
         callAPI(){
             var obj = {
-                "username":"duy10@gmail.com",
-                "password":"123456"
+                "email": "duynnd01@gmail.com",
+                "fullName":"Duy ADMIN",
+                "password": "123456",
+                "password2": "123456"
             }
-            let axiosConfig = {
-                headers: {
-                        'Content-type': 'application/json',
-                        'Access-Control-Allow-Origin':'*',
-                        'Access-Control-Allow-Methods':'GET,POST,PUT,DELETE,PATCH',
-                        'Access-Control-Allow-Headers':'Origin, Content-Type, X-Auth-Token'
-                    }
-            };
+             var obj2 = {
+                "email": "duynnd02@gmail.com",
+                "fullName":"Duy Client",
+                "password": "123456",
+                "password2": "123456"
+            }
+            this.$store.dispatch("createUser",obj2);
+            // localStorage.setItem("user", JSON.stringify(obj))
+            // api.post(`users/login`,obj)
+            // .then(res => {console.log(res)})
 
-            axios.post('https://blogdrfduynnd.herokuapp.com/api/account/login',obj,axiosConfig)
-                .then(res =>{
-                    console.log('res',res)
-                })
-                .catch(err =>{
-                    console.log('err',err)
-                })
+
         }
     }
 }
