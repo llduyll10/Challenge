@@ -23,6 +23,10 @@ User: duynnd02@gmail.com - 123456
 User: Submit loan
 Amin: Approve loan
 
+3.CSS Challeng
+You can click button Home in Sidebar to view the CSS challenge and click button Login to view the JS Challenge.
+
+
 After a loan is submitted and approved by admin, user can use repay function, which will set the deadline for the loan 7 days from the deadline time.
 
 ```
